@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
 //               路由名？                                 地址                        别名
-Route::get('/edu/article/index','Edu\ArticleController@index')->name('edu.article.index');
-Route::get('/edu/article/aa','Edu\ArticleController@aa')->name('edu.article.aa');
-Route::post('/edu/article/store','Edu\ArticleController@store')->name('edu.article.store');
+Route::get('/register','UserController@register')->name('register');
+Route::get('/login','UserController@login')->name('login');
+Route::post('/register','UserController@store')->name('register');
 
-Route::resource('/edu/phpto','Edu\PhotoController');
+Route::any('/code/send','Util\CodeController@send')->name('code.send');
