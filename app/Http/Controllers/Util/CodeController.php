@@ -13,6 +13,7 @@ class CodeController extends Controller
 //        dd($request->all());
 //        dd($request->username);
         $code=$this->random();
+//        字段是否等于$request->username
         $user=User::firstOrNew(['email'=>$request->username]);
 //        dd($user);
         $user->notify(new RegisterNotify($code));
