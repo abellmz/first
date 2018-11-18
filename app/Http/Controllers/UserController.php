@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest',[
+           'only'=>['login','loginForm','register','store','passwordReset','passwordResetForm']
+        ]);
+    }
+
     //注册
     public function register(){
         return view('user.register');
@@ -44,7 +51,7 @@ class UserController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        if (\Auth::attempt($credentials)) {
+        if (\Auth::attempt($credentials,$request->remember)) {
             // Authentication passed...
             return redirect()->route('home')->with('success','登录成功');
         }

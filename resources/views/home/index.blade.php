@@ -15,11 +15,16 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset('org/assets')}}/css/theme.min.css">
 
-    <title>Dashkit</title>
+    <title>Abel空间</title>
 </head>
 <body>
+{{--策略有关  调用app中Policies的UserController中的view()方法，传递一个参数auth()->user()，
+判断是否为管理员--}}
+@can('view',auth()->user())
 
+    @endcan
 <!-- TOPNAV
+
 ================================================== -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
@@ -532,6 +537,7 @@
 
             <!-- 用户头像 Dropdown -->
             <div class="dropdown">
+                {{--用于判断是否登录--}}
             @auth()
                 <!-- Toggle -->
                     <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -541,6 +547,7 @@
                     <!-- Menu -->
                     <div class="dropdown-menu dropdown-menu-right">
                         <a href="profile-posts.html" class="dropdown-item"></a>
+                        {{--判断是否管理员--}}
                         @if(auth()->user()->is_admin ==1)
                             <a href="{{route('admin.index')}}" class="dropdown-item">后台管理</a>
                         @endif
@@ -567,7 +574,7 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">
-                        Dashboard
+                        Abel'Home
                     </a>
                 </li>
                 <li class="nav-item dropdown">

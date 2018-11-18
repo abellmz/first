@@ -71,12 +71,16 @@
                     <div class="input-group input-group-merge">
                         <input type="password"name="password" class="form-control form-control-appended" placeholder="请输入密码">
                         <div class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="fe fe-eye"></i>
-                  </span>
+                              <span class="input-group-text">
+                                <i class="fe fe-eye"></i>
+                              </span>
                         </div>
 
                     </div>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="remember" id="remember" value="1">
+                    <label class="form-check-label" for="remember">记住我</label>
                 </div>
 
                 <!-- Submit -->
