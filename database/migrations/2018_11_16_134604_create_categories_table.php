@@ -13,6 +13,7 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
+        //              表单名                    写入
         Schema::create('categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->default('')->comment('栏目标题');

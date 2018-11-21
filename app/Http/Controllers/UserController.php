@@ -11,6 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
+        //防止游客地址栏输入，拦截
         $this->middleware('guest',[
            'only'=>['login','loginForm','register','store','passwordReset','passwordResetForm']
         ]);
@@ -30,6 +31,8 @@ class UserController extends Controller
     }
     //接收重置的表单
     public function passwordResetForm(PasswordResetRequest $request){
+//        dd('11');
+                                //            数组中的第一条  成为一维数组
         $user=User::where('email',$request->email)->first();
         if ($user){
             $user->password=bcrypt($request->password);

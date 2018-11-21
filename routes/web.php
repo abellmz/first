@@ -12,6 +12,15 @@
 */
 //根路由
 Route::get('/', 'Home\HomeController@index')->name('home');
+//前台
+Route::group(['prefix'=>'home','namespace'=>'Home','as'=>'home.'],function (){
+    Route::get('/','HomeController@index')->name('index');
+    Route::resource('article','ArticleController');
+});
+//会员管理
+Route::group(['prefix'=>'member','namespace'=>'Member','as'=>'member.'],function (){
+    Route::resource('user','UserController');
+});
 // 登录
 Route::get('/login','UserController@login')->name('login');
 Route::post('/login','UserController@loginForm')->name('login');
@@ -25,7 +34,13 @@ Route::post('/password_reset','UserController@passwordResetForm')->name('passwor
 Route::get('/logout','UserController@logout')->name('logout');
 
 //工具类：验证码
-Route::any('/code/send','Util\CodeController@send')->name('code.send');
+Route::group(['prefix'=>'util','namespace'=>'Util','as'=>'util.'],function (){
+    Route::any('/code/send','CodeController@send')->name('code.send');
+    //上传
+    Route::any('/upload','UploadController@uploader')->name('upload');
+    Route::any('/filesLists','UploadController@filesLists')->name('filesLists');
+});
+
 
 //路由群组      中间件                         前缀              命名空间            别名
 Route::group(['middleware'=>['admin.auth'],'prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){

@@ -20,7 +20,6 @@ class UserPolicy
     {
         return $user->is_admin==1;
     }
-
     /**
      * Determine whether the user can create models.
      *
@@ -79,4 +78,9 @@ class UserPolicy
     {
         //
     }
+    //判断指定用户是否为登录用户  登录的用户  需要授权的用户实例
+    public function isMine(User $user,User $model){
+        return $user->id==$model->id;
+    }
+    //$user所代表的用户是否被授权对$model实例进行操作???第一个授权能操作第二个吗？
 }

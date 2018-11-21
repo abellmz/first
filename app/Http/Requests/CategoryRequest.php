@@ -13,6 +13,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
+        //检测是否为用户   也可以用true
         return auth()->check();
     }
 
@@ -23,9 +24,11 @@ class CategoryRequest extends FormRequest
      */
     public function rules()
     {
+//                           有无参数
         $id=$this->route('category')?$this->route('category')->id:null;
-//        dd($id);
+//        dd($id);//只有添加栏目 用到
         return [
+            //     属性：必填|唯一：  表单名       字段      id
             'title'=>'required|unique:categories,title,' . $id,
             'icon'=>'required'
         ];

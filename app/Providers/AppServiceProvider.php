@@ -14,8 +14,11 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
+    {//解决mysql版本低问题
         Schema::defaultStringLength(191);
+        //carbon  中文时间
+//        Carbon::setLocale('zh');
+//        注册观察者
         User::observe(UserObserver::class);
     }
 

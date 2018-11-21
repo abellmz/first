@@ -75,6 +75,7 @@
                                     <button onclick="del(this)" type="button" class="btn btn-white">删除</button>
                                     <form action="{{route('admin.category.destroy',$category)}}" method="post">
                                        @csrf @method('DELETE')
+                                        {{--伪造表单--}}
                                     </form>
                                 </div>
                             </td>

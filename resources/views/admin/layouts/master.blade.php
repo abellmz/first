@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('org/assets')}}/libs/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="{{asset('org/assets')}}/libs/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Theme CSS   链接哪里引的？ -->
+    <!-- Theme CSS   引入字体库-->
     <link rel="stylesheet" href="{{asset('org/assets')}}/css/theme.min.css">
 
     <title>Abel后台</title>
