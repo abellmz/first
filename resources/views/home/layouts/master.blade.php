@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <!-- Libs CSS -->
     <link rel="stylesheet" href="{{asset('org/assets')}}/fonts/feather/feather.min.css">
     <link rel="stylesheet" href="{{asset('org/assets')}}/libs/highlight/styles/vs2015.min.css">
@@ -12,10 +12,9 @@
     <link rel="stylesheet" href="{{asset('org/assets')}}/libs/select2/dist/css/select2.min.css">
     <link rel="stylesheet" href="{{asset('org/assets')}}/libs/flatpickr/dist/flatpickr.min.css">
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset('org/assets')}}/css/theme.min.css">
-
+    @stack('css')
     <title>后盾人</title>
 </head>
 <body>
@@ -23,12 +22,10 @@
 ================================================== -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
-
         <!-- Toggler -->
         <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <!-- Brand -->
         <a class="navbar-brand mr-auto" href="index.html">
             <img src="{{asset('org/img/user.jpg')}}" alt="..." class="navbar-brand-img">
@@ -491,13 +488,11 @@
 
                                     </div>
                                 </div> <!-- / .row -->
-
                             </a>
                             <a class="list-group-item px-0" href="#!">
 
                                 <div class="row">
                                     <div class="col-auto">
-
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
                                             <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-8.jpg" alt="..." class="avatar-img rounded-circle">
@@ -556,7 +551,8 @@
                         <a href="{{route('logout')}}" class="dropdown-item">注销登录</a>
                     </div>
                 @else
-                    <a href="{{route('login')}}" class="btn btn-white btn-sm">登录</a>
+                                     {{--传给Request类一个参数 给定下标为from 值为当前的地址--}}
+                    <a href="{{route('login',['from'=>url()->full()])}}" class="btn btn-white btn-sm">登录</a>
                     <a href="{{route('register')}}" class="btn btn-white btn-sm">注册</a>
                 @endauth
             </div>

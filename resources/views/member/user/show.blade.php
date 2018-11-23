@@ -14,7 +14,6 @@
                                 <div class="card-header">
                                     <div class="row align-items-center">
                                         <div class="col">
-
                                             <!-- Title -->
                                             <h4 class="card-header-title">
                                                 {{--文章作者id==当前用户id  $user是show方法中的参数，所以可以直接用--}}

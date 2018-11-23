@@ -16,7 +16,7 @@
         hdjs.swal({
             text: "{{session()->get('success')}}",
             button:false,
-            icon:'warning'
+            icon:'success'
         });
     })
     @endif

@@ -82,5 +82,9 @@ class UserPolicy
     public function isMine(User $user,User $model){
         return $user->id==$model->id;
     }
-    //$user所代表的用户是否被授权对$model实例进行操作???第一个授权能操作第二个吗？
+    //检测登录用户指定用户不是一个人  是同人不能看到  不同人能看到
+    public function isNotMine(User $user,User $model){
+        return $user->id!=$model->id;
+    }
+
 }

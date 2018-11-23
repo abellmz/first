@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class ArticleController extends Controller
 {
     public function __construct()
-    {//未登陆用户
+    {//未登陆用户   登录验证
         $this->middleware('auth',[
             'only'=>['create','store','edit','update','destroy'],
         ]);

@@ -187,6 +187,8 @@ return [
     */
 
     'aliases' => [
+        'Active'=>HieuLe\Active\Facades\Active::class,
+
 
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

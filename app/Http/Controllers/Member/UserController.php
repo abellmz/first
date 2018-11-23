@@ -62,7 +62,7 @@ class UserController extends Controller
     //User指文章所属用户  由于策略中当前用户==文章所属用户 才能有编辑选项  所以这也就代表的是当前用户
     public function edit(User $user,Request $request)
     {
-        $this->authorize('isMine',$user);//isMine策略  来自User模型
+        $this->authorize('isMine',$user);//isMine策略 -> 来自User模型
         $type=$request->query('type');//这的query可能会选错了  两个好像是一个？？？
         return view('member.user.edit_'.$type,compact('user'));
     }
@@ -77,6 +77,8 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $data= $request->all();
+        //        dd($data);//等等http://laravel.edu/attachment/CsHdpdcyZltsgEoWQQG8JGL0zZH2xilzPnvNgjYm.jpeg"
+        //调用策略isMine
         $this->authorize('isMine',$user);
         //验证
         $this->validate($request,[
@@ -104,5 +106,25 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+// 传来的是文章作者  User类中的fans方法（关联找出粉丝  返回是个数组?是对象）
+    //调用内置方法toggle判断数组中有没有用户，User表中移出或者添加
+    public function attention(User $user){
+//      文章作者   的粉丝     切换(移出或者添加)
+        $user->fans()->toggle(auth()->user());
+        return back();
+    }
+    //我的粉丝
+    public function myFans(User $user){
+        //获取$user用户的粉丝
+//        dd('11');
+        $fans=$user->fans()->paginate(2);
+        return view('member.user.my_fans',compact('user','fans'));
+    }
+    //我关注的人
+    public function myFollowing(User $user){
+        //获取$user用户关注的人
+    $followings=$user->following()->paginate(10);
+    return view('member.user.my_following',compact('user','followings'));
     }
 }

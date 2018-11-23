@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        //防止游客地址栏输入，拦截
+        //调用中间件，保护登录注册（已经登录用户不允许再访问登录注册）
         $this->middleware('guest',[
            'only'=>['login','loginForm','register','store','passwordReset','passwordResetForm']
         ]);
@@ -22,7 +22,8 @@ class UserController extends Controller
         return view('user.register');
     }
 //    登录
-    public function login(){
+    public function login(Request $request){
+//        dd($request);//得到参数："from" => "http://laravel.edu/home/article/20"
         return view('user.login');
     }
 //重置表单
@@ -55,9 +56,10 @@ class UserController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (\Auth::attempt($credentials,$request->remember)) {
-            // Authentication passed...
-            return redirect()->route('home')->with('success','登录成功');
+            // 登录成功，跳转到首页  从Request类中取出存储的下标为from的值
+            return redirect($request->from)->with('success','登录成功');
         }
+//        这个redirect应该可以去掉吧？我去掉后效果一样
         return redirect()->back()->with('danger','用户名或密码不正确');
     }
 

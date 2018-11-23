@@ -28,7 +28,6 @@
                                         <a href="#!" class="small text-muted dropdown-toggle" data-toggle="dropdown">
                                             筛选
                                         </a>
-
                                         <!-- Menu -->
                                         <div class="dropdown-menu">
                                             @foreach($categories as $category)
