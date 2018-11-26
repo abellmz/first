@@ -14,7 +14,7 @@ class UserObserver
      */
     public function created(User $user)
     {
-        $user->email_verified_at=now();
+        $user->email_verified_at=now();//给该字段赋值
         $user->save();
     }
 

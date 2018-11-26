@@ -16,6 +16,8 @@ Route::get('/', 'Home\HomeController@index')->name('home');
 Route::group(['prefix'=>'home','namespace'=>'Home','as'=>'home.'],function (){
     Route::get('/','HomeController@index')->name('index');
     Route::resource('article','ArticleController');
+    //评论
+    Route::resource('comment','CommentController');
 });
 //会员中心
 Route::group(['prefix'=>'member','namespace'=>'Member','as'=>'member.'],function (){

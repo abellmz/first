@@ -23,7 +23,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
         <!-- Toggler -->
-        <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
@@ -33,10 +34,12 @@
 
         <!-- Form -->
         <form class="form-inline mr-4 d-none d-lg-flex">
-            <div class="input-group input-group-rounded input-group-merge" data-toggle="lists" data-lists-values='["name"]'>
+            <div class="input-group input-group-rounded input-group-merge" data-toggle="lists"
+                 data-lists-values='["name"]'>
 
                 <!-- Input -->
-                <input type="search" class="form-control form-control-prepended  dropdown-toggle search" data-toggle="dropdown" placeholder="Search" aria-label="Search">
+                <input type="search" class="form-control form-control-prepended  dropdown-toggle search"
+                       data-toggle="dropdown" placeholder="Search" aria-label="Search">
                 <div class="input-group-prepend">
                     <div class="input-group-text">
                         <i class="fe fe-search"></i>
@@ -55,7 +58,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar">
-                                            <img src="{{asset('org/assets')}}/img/avatars/teams/team-logo-1.jpg" alt="..." class="avatar-img rounded">
+                                            <img src="{{asset('org/assets')}}/img/avatars/teams/team-logo-1.jpg"
+                                                 alt="..." class="avatar-img rounded">
                                         </div>
 
                                     </div>
@@ -81,7 +85,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar">
-                                            <img src="{{asset('org/assets')}}/img/avatars/teams/team-logo-2.jpg" alt="..." class="avatar-img rounded">
+                                            <img src="{{asset('org/assets')}}/img/avatars/teams/team-logo-2.jpg"
+                                                 alt="..." class="avatar-img rounded">
                                         </div>
 
                                     </div>
@@ -108,7 +113,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-4by3">
-                                            <img src="{{asset('org/assets')}}/img/avatars/projects/project-1.jpg" alt="..." class="avatar-img rounded">
+                                            <img src="{{asset('org/assets')}}/img/avatars/projects/project-1.jpg"
+                                                 alt="..." class="avatar-img rounded">
                                         </div>
 
                                     </div>
@@ -136,7 +142,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-4by3">
-                                            <img src="{{asset('org/assets')}}/img/avatars/projects/project-2.jpg" alt="..." class="avatar-img rounded">
+                                            <img src="{{asset('org/assets')}}/img/avatars/projects/project-2.jpg"
+                                                 alt="..." class="avatar-img rounded">
                                         </div>
 
                                     </div>
@@ -164,7 +171,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-4by3">
-                                            <img src="{{asset('org/assets')}}/img/avatars/projects/project-3.jpg" alt="..." class="avatar-img rounded">
+                                            <img src="{{asset('org/assets')}}/img/avatars/projects/project-3.jpg"
+                                                 alt="..." class="avatar-img rounded">
                                         </div>
 
                                     </div>
@@ -192,7 +200,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-1.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -219,7 +228,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-2.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -253,7 +263,8 @@
             <div class="dropdown mr-4 d-none d-lg-flex">
 
                 <!-- Toggle -->
-                <a href="#" class="text-muted" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a href="#" class="text-muted" role="button" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
               <span class="icon active">
                 <i class="fe fe-bell"></i>
               </span>
@@ -292,7 +303,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-1.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -300,7 +312,9 @@
 
                                         <!-- Content -->
                                         <div class="small text-muted">
-                                            <strong class="text-body">Dianna Smiley</strong> shared your post with <strong class="text-body">Ab Hadley</strong>, <strong class="text-body">Adolfo Hess</strong>, and <strong class="text-body">3 others</strong>.
+                                            <strong class="text-body">Dianna Smiley</strong> shared your post with
+                                            <strong class="text-body">Ab Hadley</strong>, <strong class="text-body">Adolfo
+                                                Hess</strong>, and <strong class="text-body">3 others</strong>.
                                         </div>
 
                                     </div>
@@ -321,7 +335,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-2.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -350,7 +365,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-3.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-3.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -359,7 +375,9 @@
                                         <!-- Content -->
                                         <div class="small text-muted">
                                             <strong class="text-body">Adolfo Hess</strong> commented
-                                            <blockquote class="text-body">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...”</blockquote>
+                                            <blockquote class="text-body">“I don’t think this really makes sense to do
+                                                without approval from Johnathan since he’s the one...”
+                                            </blockquote>
                                         </div>
 
                                     </div>
@@ -380,7 +398,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-4.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-4.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -409,7 +428,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-5.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-5.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -417,7 +437,9 @@
 
                                         <!-- Content -->
                                         <div class="small text-muted">
-                                            <strong class="text-body">Miyah Myles</strong> shared your post with <strong class="text-body">Ryu Duke</strong>, <strong class="text-body">Glen Rouse</strong>, and <strong class="text-body">3 others</strong>.
+                                            <strong class="text-body">Miyah Myles</strong> shared your post with <strong
+                                                    class="text-body">Ryu Duke</strong>, <strong class="text-body">Glen
+                                                Rouse</strong>, and <strong class="text-body">3 others</strong>.
                                         </div>
 
                                     </div>
@@ -438,7 +460,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-6.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-6.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -467,7 +490,8 @@
 
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-7.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-7.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -476,7 +500,9 @@
                                         <!-- Content -->
                                         <div class="small text-muted">
                                             <strong class="text-body">Glen Rouse</strong> commented
-                                            <blockquote class="text-body">“I don’t think this really makes sense to do without approval from Johnathan since he’s the one...”</blockquote>
+                                            <blockquote class="text-body">“I don’t think this really makes sense to do
+                                                without approval from Johnathan since he’s the one...”
+                                            </blockquote>
                                         </div>
 
                                     </div>
@@ -495,7 +521,8 @@
                                     <div class="col-auto">
                                         <!-- Avatar -->
                                         <div class="avatar avatar-sm">
-                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-8.jpg" alt="..." class="avatar-img rounded-circle">
+                                            <img src="{{asset('org/assets')}}/img/avatars/profiles/avatar-8.jpg"
+                                                 alt="..." class="avatar-img rounded-circle">
                                         </div>
 
                                     </div>
@@ -526,7 +553,7 @@
             {{--文章添加--}}
             <div class="dropdown mr-4 d-none d-lg-flex">
                 <!-- Toggle 笔-->
-                <a href="{{route('home.article.create')}}" class="text-muted" >
+                <a href="{{route('home.article.create')}}" class="text-muted">
                   <span class="icon ">
                     <i class="fe fe-edit-3"></i>
                   </span>
@@ -537,12 +564,14 @@
             <div class="dropdown">
             @auth()
                 <!-- Toggle -->
-                    <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <img src="{{auth()->user()->icon}}" alt="..." class="avatar-img rounded-circle">
                     </a>
                     <!-- Menu -->
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{route('member.user.show',auth()->user())}}" class="dropdown-item">{{auth()->user()->name}}</a>
+                        <a href="{{route('member.user.show',auth()->user())}}"
+                           class="dropdown-item">{{auth()->user()->name}}</a>
                         @can('view',auth()->user())
                             {{--为什么auth()->user()不能改成其他参数，授权又不涉及到这个？--}}
                             <a href="{{route('admin.index')}}" class="dropdown-item">后台管理</a>
@@ -551,7 +580,7 @@
                         <a href="{{route('logout')}}" class="dropdown-item">注销登录</a>
                     </div>
                 @else
-                                     {{--传给Request类一个参数 给定下标为from 值为当前的地址--}}
+                    {{--传给Request类一个参数 给定下标为from 值为当前的地址--}}
                     <a href="{{route('login',['from'=>url()->full()])}}" class="btn btn-white btn-sm">登录</a>
                     <a href="{{route('register')}}" class="btn btn-white btn-sm">注册</a>
                 @endauth
@@ -575,7 +604,8 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#!" id="topnavPages" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#!" id="topnavPages" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
                         Pages
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="topnavPages">

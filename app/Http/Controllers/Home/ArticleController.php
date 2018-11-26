@@ -11,10 +11,11 @@ use App\Http\Controllers\Controller;
 class ArticleController extends Controller
 {
     public function __construct()
-    {//未登陆用户   登录验证
+    {//未登陆用户   登录验证         中间键    选项
         $this->middleware('auth',[
             'only'=>['create','store','edit','update','destroy'],
         ]);
+//    只有用户能访问  这些方法
     }
 
     /**
