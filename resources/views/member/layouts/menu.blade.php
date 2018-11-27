@@ -1,4 +1,4 @@
-<div class="col-sm-3">
+<div class="col-sm-3" id="left_menu">
     <div class="card">
         <div class="card-block text-center pt-5">
             <div class="avatar avatar-xxl">
@@ -54,8 +54,20 @@
                         他的关注
                     @endcan
                 </a>
-                <a href="" class="nav-link text-muted">
-                    消息中心
+                <a href="{{route('member.my_collection',[$user,'type'=>'article'])}}" class="nav-link text-muted {{active_class(if_route(['member.my_collection']),'active','')}}">
+                    @can('isMine',$user)
+                        我的收藏
+                    @else
+                        他的收藏
+                    @endcan
+                </a>
+                                            {{-- type参数  默认文章页面--}}
+                <a href="{{route('member.my_zan',[$user,'type'=>'article'])}}" class="nav-link text-muted {{active_class(if_route(['member.my_zan']),'active','')}}">
+                    @can('isMine',$user)
+                    我的点赞
+                    @else
+                    他的点赞
+                    @endcan
                 </a>
             </div>
         </div>
@@ -81,7 +93,8 @@
 </div>
 @push('css')
     <style>
-        .active{
+        {{--为怎么要加空格--}}
+        #left_menu .active{
             color:white!important;
         }
     </style>

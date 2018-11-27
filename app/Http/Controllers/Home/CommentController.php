@@ -16,7 +16,13 @@ class CommentController extends Controller
         //get中间可以有链式操作，all不能有链式操作，待确定？
         //这样关联,保证 Comment 模型中有关联 user 的方法
         //获取指定文章的所有评论数据   数据中加塞一条user数据         字段          值(来源于ArticleControll中的show方法参数)
-        $comments=$comment->with('user')->where('article_id',$request->article_id)->get();
+//                                  为啥加上【】
+        $comments=$comment->with(['user'])->where('article_id',$request->article_id)->get();
+//        dd($comments);
+        foreach ($comments as $comment){
+//            dd($comment->zan);
+            $comment->zan_num=$comment->zan->count();
+        }
 //code、message用户判断，目前没用上
         return ['code'=>1,'message'=>'','comments'=>$comments];
     }
@@ -30,6 +36,7 @@ class CommentController extends Controller
         $comment->save();
 //        dd($comment->toArray());
         $comment=$comment->with('user')->find($comment->id);
+        $comment->zan_num=$comment->zan->count();
 // dd($comment->toArray());
         return ['code'=>1,'message'=>'','comment'=>$comment];
     }

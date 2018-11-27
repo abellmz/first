@@ -3,6 +3,8 @@
 namespace App;
 
 use App\Models\Attachment;
+use App\Models\Collection;
+use App\Models\Zan;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -29,7 +31,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-    public function getIconAttribute($key){
+    public function getIconAttribute($key){//默认icon
         return $key?:asset('org/img/user.jpg');
     }
     //关联 附件（方法名叫附加）  返回一个类model下的Attachment
@@ -46,5 +48,13 @@ class User extends Authenticatable
     public function following(){
         //  用户      属于      多用户                         中间表                 主角                              粉丝
         return $this->belongsToMany(User::class,'followers','following_id','user_id');
+    }
+    public function zan(){
+//        一个用户对应多个赞
+        return $this->hasMany(Zan::class);
+    }
+    public  function collecttion(){
+//        一个用户对应多个收藏
+        return $this->hasMany(Collection::class);
     }
 }

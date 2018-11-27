@@ -14,4 +14,10 @@ class Comment extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+    public function zan(){
+        return $this->morphMany(Zan::class,'zan');
+    }
+    public function article(){
+        return $this->belongsTo(Article::class);
+    }
 }

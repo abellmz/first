@@ -18,6 +18,11 @@ Route::group(['prefix'=>'home','namespace'=>'Home','as'=>'home.'],function (){
     Route::resource('article','ArticleController');
     //评论
     Route::resource('comment','CommentController');
+    //点赞
+    Route::get('zan/make','ZanController@make')->name('zan.make');
+    //收藏
+    Route::get('collection/make','CollectionController@make')->name('collection.make');
+
 });
 //会员中心
 Route::group(['prefix'=>'member','namespace'=>'Member','as'=>'member.'],function (){
@@ -26,7 +31,16 @@ Route::group(['prefix'=>'member','namespace'=>'Member','as'=>'member.'],function
     Route::get('attention/{user}','UserController@attention')->name('attention');
     //我的粉丝
     Route::get('get_fans/{user}','UserController@myFans')->name('my_fans');
+//    我的关注
     Route::get('get_following/{user}','UserController@myFollowing')->name('my_following');
+//    我的点赞
+    Route::get('get_zan/{user}','UserController@myZan')->name('my_zan');
+    //我的所有通知
+    Route::get('notify/{user}','NotifyController@index')->name('notify');
+//    b标记已读
+    Route::get('notify/show/{notify}','NotifyController@show')->name('notify.show');
+    //我的收藏
+    Route::get('get_collection/{user}','UserController@myCollection')->name('my_collection');
 });
 // 登录
 Route::get('/login','UserController@login')->name('login');

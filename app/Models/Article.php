@@ -14,4 +14,12 @@ class Article extends Model
     public function category(){//多 对 一  文章对栏目
         return $this->belongsTo(Category::class);
     }
+    public function zan(){
+        //文章-赞  多态关联
+        return $this->morphMany(Zan::class,'zan');
+    }
+    public function collection(){
+        //文章-收藏 多态关联
+        return $this->morphMany(Collection::class,'collection');
+    }
 }

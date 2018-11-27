@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Member;
 
 use App\Models\Article;
+use App\Models\Collection;
+use App\Models\Zan;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -126,5 +128,22 @@ class UserController extends Controller
         //获取$user用户关注的人
     $followings=$user->following()->paginate(10);
     return view('member.user.my_following',compact('user','followings'));
+    }
+//    我的点赞
+    public function myZan(User $user,Request $request,Zan $zan){
+        $type=$request->query('type');
+//        dd($type);
+//        dd($user->zan()->where('zan_type','App\Models\\'.ucfirst($type))->paginate(1));
+//        用户关联赞  找出zan_type=。。的了数据  分页
+        $zansData=$user->zan()->where('zan_type','App\Models\\'.ucfirst($type))->paginate(1);
+//            dd($zansData);
+        return view('member.user.my_zan_' . $type,compact('user','zansData'));
+    }
+    public function myCollection(User $user,Request $request,Collection $collection){
+        $type=$request->query('type');
+//        dd($type);
+//        dd($user->collecttion()->where('collection_type','App\Models\\'.ucfirst($type))->paginate(1));
+        $collectionData=$user->collecttion()->where('collection_type','App\Models\\'.ucfirst($type))->paginate(1);
+        return view('member.user.my_collection_' . $type,compact('user','collectionData'));
     }
 }
