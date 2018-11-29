@@ -112,6 +112,7 @@ class UserController extends Controller
 // 传来的是文章作者  User类中的fans方法（关联找出粉丝  返回是个数组?是对象）
     //调用内置方法toggle判断数组中有没有用户，User表中移出或者添加
     public function attention(User $user){
+        $this->authorize( 'isNotMine' , $user );
 //      文章作者   的粉丝     切换(移出或者添加)
         $user->fans()->toggle(auth()->user());
         return back();

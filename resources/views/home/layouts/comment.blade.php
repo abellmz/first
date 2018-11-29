@@ -1,7 +1,7 @@
 <div class="card" id="app">
     <div class="card-body">
         <!-- Comments                   值       属性      循环出属性中的内容 -->
-        <div class="comment mb-3" v-for="v in comments">
+        <div class="comment mb-3" v-for="v in comments" :id="'comment' +v.id">
             <div class="row">
                 <div class="col-auto">
                     <!-- Avatar -->
@@ -87,6 +87,7 @@
                             hljs.highlightBlock(block);
                         });
                     });
+                hdjs.scrollTo('body',location.hash,1000, {queue:true});
                 },
                 //方法
                 methods: {

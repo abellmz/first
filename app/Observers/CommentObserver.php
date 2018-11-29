@@ -15,8 +15,11 @@ class CommentObserver
      */
     public function created(Comment $comment)
     {
-        //发送通知  具体文章评论数据
-        $comment->article->user->notify(new CommentNotify($comment));
+        //发送通知  具体文章评论数据  判断作者和用户是否同一个人  不同人能看到
+        if($comment->article->user->id !=auth()->id()){
+            $comment->article->user->notify(new CommentNotify($comment));
+        }
+
     }
 
     /**

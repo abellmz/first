@@ -5,6 +5,7 @@ namespace App;
 use App\Models\Attachment;
 use App\Models\Collection;
 use App\Models\Zan;
+use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,10 +28,14 @@ class User extends Authenticatable
      *
      * @var array  隐藏谁？（这是属性，用于调用）
      */
-//    隐藏谁呀？？？打印的时候隐藏
+//    打印的时候隐藏
     protected $hidden = [
         'password', 'remember_token',
     ];
+//    重写 据库通知中 获取所有通知的 notifications 方法   读取之间  升序  创建时间  降序
+    public function notifications(){
+        return $this->morphMany(DatabaseNotification::class,'notifiable')->orderBy('read_at','asc')->orderBy('created_at', 'desc');
+    }
     public function getIconAttribute($key){//默认icon
         return $key?:asset('org/img/user.jpg');
     }

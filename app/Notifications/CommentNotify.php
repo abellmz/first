@@ -61,6 +61,10 @@ protected $comment;
             'user_name'=>$this->comment->user->name,
             'article_id'=>$this->comment->article->id,
             'article_title'=>$this->comment->article->title,
+            //'link'=>route('home.article.show',$this->comment->article) . '#comment' . $this->comment->id,
+//                                         来自article  id      参数
+            'link'=>$this->comment->article->getLink('#comment' . $this->comment->id),
+//                                                      comment.id
         ];
     }
 }

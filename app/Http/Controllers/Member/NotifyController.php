@@ -28,6 +28,7 @@ class NotifyController extends Controller
         $notify->markAsRead();
 //        dd($notify);
         //跳转到文章详情页,页面自动滚动到对应的评论  需要自己探索
-        return redirect(route('home.article.show',$notify['data']['article_id']));
+//        link 在CommentNotifify 中定义了
+        return redirect($notify['data']['link']);
     }
 }

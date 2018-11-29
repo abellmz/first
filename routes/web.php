@@ -22,7 +22,8 @@ Route::group(['prefix'=>'home','namespace'=>'Home','as'=>'home.'],function (){
     Route::get('zan/make','ZanController@make')->name('zan.make');
     //收藏
     Route::get('collection/make','CollectionController@make')->name('collection.make');
-
+//    搜索
+    Route::get('search','HomeController@search')->name('search');
 });
 //会员中心
 Route::group(['prefix'=>'member','namespace'=>'Member','as'=>'member.'],function (){

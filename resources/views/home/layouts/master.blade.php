@@ -33,12 +33,11 @@
         </a>
 
         <!-- Form -->
-        <form class="form-inline mr-4 d-none d-lg-flex">
+        <form class="form-inline mr-4 d-none d-lg-flex" action="{{route('home.search')}}">
             <div class="input-group input-group-rounded input-group-merge" data-toggle="lists"
                  data-lists-values='["name"]'>
-
                 <!-- Input -->
-                <input type="search" class="form-control form-control-prepended  dropdown-toggle search"
+                <input type="search" name="wd" class="form-control form-control-prepended  dropdown-toggle search"
                        data-toggle="dropdown" placeholder="Search" aria-label="Search">
                 <div class="input-group-prepend">
                     <div class="input-group-text">
@@ -262,7 +261,6 @@
             @auth()
             <!-- Dropdown  里面内容还没看 -->
             <div class="dropdown mr-4 d-none d-lg-flex">
-
                 <!-- Toggle -->
                 <a href="#" class="text-muted" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{--判断  用户未读文件数不为0 则亮--}}
@@ -270,7 +268,6 @@
                 <i class="fe fe-bell"></i>
               </span>
                 </a>
-
                 <!-- Menu -->
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-card">
                     <div class="card-header">
@@ -284,7 +281,6 @@
 
                             </div>
                             <div class="col-auto">
-
                                 <!-- Link -->
                                 <a href="{{route('member.notify',auth()->user())}}" class="small">
                                     查看全部通知
