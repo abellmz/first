@@ -14,7 +14,7 @@
                 </a>
                 @if($active['description'] =='created')
                     发布了
-                @elseif($active['description'] =='updated')
+                @elseif($active['deascription'] =='updated')
                     修改了
                 @endif
                 <a href="{{route('home.article.show',$active['properties']['attributes']['id'])}}">

@@ -15,7 +15,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset('org/assets')}}/css/theme.min.css">
     @stack('css')
-    <title>后盾人</title>
+    <title>{{hd_config('base.title')}}</title>
 </head>
 <body>
 <!-- TOPNAV

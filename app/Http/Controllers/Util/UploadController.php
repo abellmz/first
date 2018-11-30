@@ -28,6 +28,7 @@ class UploadController extends Controller
                 //上传文件存储目录   指定磁盘(对应config/filesystem.php中disk)
                 $path=$file->store('attachment','attachment');
                 auth()->user()->attachment()->create([
+//                    获取客户端原始文件名
                     'name'=>$file->getClientOriginalName(),
                     'path'=>url($path)
                 ]);
@@ -38,13 +39,13 @@ class UploadController extends Controller
     }
 //图片大小
     private function checkSize($file){
-        if ($file->getSize()>20000000){
+        if ($file->getSize()>hd_config('upload.size')){
             throw new UploadException('上传文件过大');//注意引用的 异常抛出
         }
     }
     //图片类型
     private function checkType($file){
-        if(!in_array(strtolower($file->getClientOriginalExtension()),['jpg','png'])){
+        if(!in_array(strtolower($file->getClientOriginalExtension()),explode('|',hd_config('upload.type')))){
             throw new UploadException('类型不允许');
         };
     }
