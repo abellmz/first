@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-
+    <meta name="csrf-token" content="{{csrf_token()}}">
     <!-- Libs CSS -->
     <link rel="stylesheet" href="{{asset('org/assets')}}/fonts/feather/feather.min.css">
     <link rel="stylesheet" href="{{asset('org/assets')}}/libs/highlight/styles/vs2015.min.css">
@@ -14,7 +14,9 @@
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Theme CSS   引入字体库-->
     <link rel="stylesheet" href="{{asset('org/assets')}}/css/theme.min.css">
-
+    {{--引入css位置--}}
+@stack('css')
+@stack('css-lunbo')
     <title>{{hd_config('base.title')}}后台</title>
 </head>
 <body>
@@ -23,7 +25,6 @@
 ================================================== -->
 <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white">
     <div class="container-fluid">
-
         <!-- Toggler -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -90,6 +91,11 @@
                                     栏目管理
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.flash.index')}}" class="nav-link" >
+                                    轮播图管理
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -106,6 +112,7 @@
                                 <a href="{{route('admin.config.edit',['name'=>'upload'])}}" class="nav-link" >
                                     上传配置
                                 </a>
+
                                 <a href="{{route('admin.config.edit',['name'=>'mail'])}}" class="nav-link" >
                                     邮件配置
                                 </a>
@@ -125,13 +132,29 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#sidebarLayouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
-                        <i class="fe fe-layout"></i> Layouts
+                        <i class="fe fe-layout"></i> 微信管理
                     </a>
                     <div class="collapse show" id="sidebarLayouts">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="index.html" class="nav-link">
-                                    Sidenav
+                                <a href="{{route('wechat.response_base.create')}}" class="nav-link">
+                                    基本回复
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('wechat.button.index')}}" class="nav-link">
+                                    微信菜单
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('wechat.response_text.index')}}" class="nav-link" >
+                                    文本回复
+                                </a>
+
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('wechat.response_news.index')}}" class="nav-link">
+                                    图文回复
                                 </a>
                             </li>
                         </ul>
@@ -330,7 +353,6 @@
 <!-- MAIN CONTENT
 ================================================== -->
 <div class="main-content">
-
     @yield('content')
 </div> <!-- / .main-content -->
 <!-- JAVASCRIPT
@@ -342,5 +364,6 @@
 </script>
 {{--stack在手册Blade模板--}}
 @stack('js')
+@stack('lunbo')
 </body>
 </html>

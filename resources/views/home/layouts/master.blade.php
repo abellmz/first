@@ -446,5 +446,6 @@
 @include('layouts.message')
 <!-- Theme JS -->
 @stack('js')
+@stack('lunbo')
 </body>
 </html>

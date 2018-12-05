@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentsTable extends Migration
+class CreateButtonsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('buttons', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('article_id')->index()->default(0)->comment('评论的文章');
-            $table->unsignedInteger('user_id')->index()->default(0)->comment('评论的用户');
-            $table->text('content')->comment('评论内容');
+            $table->string('title')->default('')->comment('菜单标题');
+            $table->text('data')->comment('菜单数据');
+            $table->unsignedTinyInteger('status')->default(0)->comment('菜单状态,1微信正在使用0代表未被微信使用');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('buttons');
     }
 }

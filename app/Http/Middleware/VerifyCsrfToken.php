@@ -18,7 +18,9 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array
      */
+    //    用户post提交时需要有令牌才能得到回复  要么给   要么排除在外不要令牌
     protected $except = [
-        //
+        //        不要令牌
+        'wechat/api/handler'
     ];
 }

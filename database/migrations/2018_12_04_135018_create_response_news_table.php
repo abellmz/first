@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCommentsTable extends Migration
+class CreateResponseNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('response_news', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('article_id')->index()->default(0)->comment('评论的文章');
-            $table->unsignedInteger('user_id')->index()->default(0)->comment('评论的用户');
-            $table->text('content')->comment('评论内容');
+            $table->text('data')->comment('图文数据');
+            $table->unsignedInteger('rule_id')->index()->default(0)->comment('规则主键 id');
+            $table->foreign('rule_id')
+                ->references('id')->on('rules')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('response_news');
     }
 }

@@ -39,13 +39,17 @@ class UploadController extends Controller
     }
 //图片大小
     private function checkSize($file){
+//        dd($file->getSize());
+        //$path = $request->file('上传表单name名')->store('上传文件存储目录','指定磁盘(对应config/filesystem.php中disk)');
         if ($file->getSize()>hd_config('upload.size')){
+//        if ($file->getSize()>10000000){
             throw new UploadException('上传文件过大');//注意引用的 异常抛出
         }
     }
-    //图片类型
+//图片类型
     private function checkType($file){
-        if(!in_array(strtolower($file->getClientOriginalExtension()),explode('|',hd_config('upload.type')))){
+//        if(!in_array(strtolower($file->getClientOriginalExtension()),explode('|',hd_config('upload.type')))){
+        if(!in_array(strtolower($file->getClientOriginalExtension()),explode('|','jpg|png'))){
             throw new UploadException('类型不允许');
         };
     }

@@ -14,6 +14,7 @@ class CreateZansTable extends Migration
     public function up()
     {
         Schema::create('zans', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');//这的index()是外键索引（字面意思）
             $table->unsignedInteger('user_id')->index()->default(0)->comment('用户id');
             $table->unsignedInteger('zan_id')->index()->default(0)->comment('文章 id/评论 id');

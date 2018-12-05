@@ -72,9 +72,26 @@ Route::group(['middleware'=>['admin.auth'],'prefix'=>'admin','namespace'=>'Admin
     //创建控制器指定模型        --参数：指定注入的方法、参数等         空间和类名
     //artisan make:controller --model=Models/Category Admin/CategoryController
     //资源路由                                  控制器名    省略方法
-Route::resource('category','CategoryController');
-//配置项管理
+    Route::resource('category','CategoryController');
+    //配置项管理
     Route::get('config/edit/{name}','ConfigController@edit')->name('config.edit');
     Route::post('config/update/{name}','ConfigController@update')->name('config.update');
-
+//    轮播图
+    Route::resource('flash','FlashController');
 });
+//微信管理
+Route::group(['prefix'=>'wechat','namespace'=>'Wechat','as'=>'wechat.'],function (){
+//    菜单管理
+    Route::resource('button','ButtonController');
+    Route::get('button/push/{button}','ButtonController@push')->name('button.push');
+//微信 接口配置信息的url（即调用该方法的路径--url  ）
+    Route::any('api/handler','ApiController@handler')->name('api.handler');
+//    基本文本回复
+    Route::resource('response_text','ResponseTextController');
+//    基本图文回复
+    Route::resource('response_news','ResponseNewsController');
+//   基本回复 关注回复和默认回复
+    Route::resource('response_base','ResponseBaseController');
+});
+
+

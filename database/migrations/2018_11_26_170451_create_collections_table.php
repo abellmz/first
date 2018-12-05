@@ -14,6 +14,7 @@ class CreateCollectionsTable extends Migration
     public function up()
     {
         Schema::create('collections', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('user_id')->index()->default(0)->comment('用户 id');
             $table->unsignedInteger('collection_id')->index()->default(0)->comment('文章/用户 id');
