@@ -134,6 +134,9 @@ return [
 
     'providers' => [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
         /*
          * Laravel Framework Service Providers...
          */

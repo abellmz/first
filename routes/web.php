@@ -93,5 +93,14 @@ Route::group(['prefix'=>'wechat','namespace'=>'Wechat','as'=>'wechat.'],function
 //   基本回复 关注回复和默认回复
     Route::resource('response_base','ResponseBaseController');
 });
+Route::group(['prefix'=>'role','namespace'=>'Role','as'=>'role.'],function (){
+//    权限列表
+    Route::get('permission/indx','PermissionController@index')->name('permission.index');
+//    清除权限缓存
+    Route::get('permission/forget_permission_cache','PermissionController@forgetPermissionCache')->name('permission.forget_permission_cache');
+//    角色管理的资源
+    Route::resource('role','RoleController');
+});
+
 
 
