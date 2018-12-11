@@ -1,0 +1,122 @@
+<style lang="less">
+  .user {
+    .icon {
+      text-align: center;
+      image {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+</style>
+
+<template>
+  <!--<view class="user">-->
+  <!--<view class="icon">-->
+  <!--<image mode="aspectFill" src="../images/user.jpg"></image>-->
+  <!--<view>我是李敏樟</view>-->
+  <!--</view>-->
+  <!--</view>-->
+  <!--<view>-->
+  <!--<button type="primary" size="default" plain="true"> 登录</button>-->
+  <!--<button type="primary" size="default" plain="true"> 退出</button>-->
+  <!--</view>-->
+  <!--登录状态-->
+  <view class="user" wx:if="{{isLogin}}">
+    <view class="icon">
+      <image mode="aspectFill" src="{{user.icon}}"></image>
+      <view>{{user.name}}</view>
+      <button type="default" @tap="logout"> 退出</button>
+    </view>
+  </view>
+  <!--未登录状态-->
+  <view wx:if="{{!isLogin}}">
+    <form @submit="post">
+      <view class="weui-cells__title">登录</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">邮箱</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" name="email" value="1114708936@qq.com" placeholder="请输入邮箱"/>
+          </view>
+        </view>
+
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">密码</view>
+          </view>
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="password" name="password" value="123456" placeholder="请输入密码"/>
+          </view>
+        </view>
+      </view>
+      <button type="default" form-type="submit"> 登录</button>
+    </form>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import util from '@/services/util'
+  import user from '@/services/user'
+
+  export default class My extends wepy.page {
+    data = {
+      isLogin: util.getToken(),
+      user: {}
+    }
+
+    //  打开页面自动加载  未登录则没数据isLogin为空
+    async onLoad() {
+      // console.log('1')
+      let response = await user.getUserInfo()
+      if (response.statusCode === 200) {
+        this.user = response.data
+        this.$apply()
+      }
+    }
+
+    // 注销登录
+    async logout() {
+      let response = await util.logout()
+      if (response.statusCode === 200) {
+        this.isLogin = false
+        this.$apply()
+      }
+    }
+
+// 登录数据提交
+    async post(e) {
+      // console.log(e) // 取出邮箱、密码
+      let formData = e.detail.value
+      // console.log(formData.email)
+      // 邮箱密码不能为空
+      if (!formData.email || !formData.password) {
+        wepy.showToast({
+          title: '请输入邮箱或密码',
+          icon: 'none',
+          duration: 2000
+        })
+        return false
+      }
+      //  判断邮箱格式是否符合要求
+      if (!/.+@.+/.test(formData.email)) {
+        wepy.showToast({
+          title: '请输入正确邮箱',
+          icon: 'none',
+          duration: 2000
+        })
+        return false
+      }
+
+      let response = await util.login({data: formData})
+      // console.log('1')
+      if (response.statusCode === 200) {
+        this.isLogin = true
+        this.$apply()
+      }
+    }
+  }
+</script>
