@@ -60,7 +60,7 @@
                             <label for="exampleInputEmail1">角色标识</label>
                             <div class="input-group mb-3">
 
-                                <input type="text" readonly name="name" value="{{$role['name']}}" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                <input type="text"  name="name" value="{{$role['name']}}" class="form-control" aria-label="Amount (to the nearest dollar)">
 
                             </div>
                             <button type="submit" class="btn btn-primary">保存</button>

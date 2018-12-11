@@ -257,79 +257,85 @@
         </form>
         <!-- User -->
         <div class="navbar-user">
-            {{--通知--}}
-            @auth()
+        {{--通知--}}
+        @auth()
             <!-- Dropdown  里面内容还没看 -->
-            <div class="dropdown mr-4 d-none d-lg-flex">
-                <!-- Toggle -->
-                <a href="#" class="text-muted" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{--判断  用户未读文件数不为0 则亮--}}
-                    <span class="icon @if(auth()->user()->unreadNotifications()->count()!=0) active @endif">
+                <div class="dropdown mr-4 d-none d-lg-flex">
+                    <!-- Toggle -->
+                    <a href="#" class="text-muted" role="button" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        {{--判断  用户未读文件数不为0 则亮--}}
+                        <span class="icon @if(auth()->user()->unreadNotifications()->count()!=0) active @endif">
                 <i class="fe fe-bell"></i>
               </span>
-                </a>
-                <!-- Menu -->
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col">
+                    </a>
+                    <!-- Menu -->
+                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-card">
+                        <div class="card-header">
+                            <div class="row align-items-center">
+                                <div class="col">
 
-                                <!-- Title -->
-                                <h5 class="card-header-title">
-                                    通知
-                                </h5>
+                                    <!-- Title -->
+                                    <h5 class="card-header-title">
+                                        通知
+                                    </h5>
 
-                            </div>
-                            <div class="col-auto">
-                                <!-- Link -->
-                                <a href="{{route('member.notify',auth()->user())}}" class="small">
-                                    查看全部通知
-                                </a>
+                                </div>
+                                <div class="col-auto">
+                                    <!-- Link -->
+                                    <a href="{{route('member.notify',auth()->user())}}" class="small">
+                                        查看全部通知
+                                    </a>
 
-                            </div>
-                        </div> <!-- / .row -->
-                    </div> <!-- / .card-header -->
-                    <div class="card-body">
+                                </div>
+                            </div> <!-- / .row -->
+                        </div> <!-- / .card-header -->
+                        <div class="card-body">
 
-                        <!-- List group -->
-                        <div class="list-group list-group-flush my--3">
-                            {{--循环出 未读通知 3条--}}
-                            @foreach(auth()->user()->unreadNotifications()->limit(3)->get() as $notification)
-                                <a class="list-group-item px-0" href="{{route('member.notify.show',$notification)}}">
-                                    <div class="row">
-                                        <div class="col-auto">
-                                            <!-- Avatar  头像-->
-                                            <div class="avatar avatar-sm">
-                                                <img src="{{$notification['data']['user_icon']}}" alt="..." class="avatar-img rounded-circle">
+                            <!-- List group -->
+                            <div class="list-group list-group-flush my--3">
+                                {{--循环出 未读通知 3条--}}
+                                @foreach(auth()->user()->unreadNotifications()->limit(3)->get() as $notification)
+                                    <a class="list-group-item px-0"
+                                       href="{{route('member.notify.show',$notification)}}">
+                                        <div class="row">
+                                            <div class="col-auto">
+                                                <!-- Avatar  头像-->
+                                                <div class="avatar avatar-sm">
+                                                    <img src="{{$notification['data']['user_icon']}}" alt="..."
+                                                         class="avatar-img rounded-circle">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col ml--2">
-                                            <!-- Content -->
-                                            <div class="small text-muted">
-                                                {{--名字 文章题目--}}
-                                                <strong class="text-body">{{$notification['data']['user_name']}}</strong> 评论了
-                                                <strong class="text-body">{{$notification['data']['article_title']}}</strong>
+                                            <div class="col ml--2">
+                                                <!-- Content -->
+                                                <div class="small text-muted">
+                                                    {{--名字 文章题目--}}
+                                                    <strong
+                                                        class="text-body">{{$notification['data']['user_name']}}</strong>
+                                                    评论了
+                                                    <strong
+                                                        class="text-body">{{$notification['data']['article_title']}}</strong>
+                                                </div>
+
                                             </div>
+                                            <div class="col-auto">
 
-                                        </div>
-                                        <div class="col-auto">
+                                                <small class="text-muted">
+                                                    {{--发表时间--}}
+                                                    {{$notification->created_at->diffForHumans()}}
+                                                </small>
 
-                                            <small class="text-muted">
-                                                {{--发表时间--}}
-                                                {{$notification->created_at->diffForHumans()}}
-                                            </small>
+                                            </div>
+                                        </div> <!-- / .row -->
 
-                                        </div>
-                                    </div> <!-- / .row -->
+                                    </a>
+                                @endforeach
+                            </div>
 
-                                </a>
-                            @endforeach
                         </div>
+                    </div> <!-- / .dropdown-menu -->
 
-                    </div>
-                </div> <!-- / .dropdown-menu -->
-
-            </div>
+                </div>
             @endauth
             {{--文章添加--}}
             <div class="dropdown mr-4 d-none d-lg-flex">
@@ -353,8 +359,11 @@
                     <div class="dropdown-menu dropdown-menu-right">
                         <a href="{{route('member.user.show',auth()->user())}}"
                            class="dropdown-item">{{auth()->user()->name}}</a>
-                        @can('view',auth()->user())
-                            {{--为什么auth()->user()不能改成其他参数，授权又不涉及到这个？--}}
+                        {{--@can('view',auth()->user())--}}
+{{--调用app中Policies的UserController中的view()方法，传递一个参数auth()->user()，判断是否为管理员，@auth()这个类在config配置中
+
+两个参数：第一个->策略中的方法	第二个->1、调用模型2、传递的参数--}}
+                        @can('Admin-admin-index')
                             <a href="{{route('admin.index')}}" class="dropdown-item">后台管理</a>
                         @endcan
                         <hr class="dropdown-divider">

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 class IndexController extends Controller
 {
     public function index(){
+//        dd('1');
         return view('admin.index.index');
     }
 }

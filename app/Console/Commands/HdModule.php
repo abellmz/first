@@ -52,29 +52,32 @@ class HdModule extends Command
                $moduleName =basename($module);
 //               dump($moduleName);//admin或者。。。
                $config =include $module . '/System/config.php';
-               dump($config);
+//               dump($config);
                $permissions =include $module . '/System/permission.php';
 //               dump($permissions);得到的$permissions为文件中的内容
+//                                  模块英文名称
                Module::firstOrNew(['name'=>$moduleName])->fill([
+//                    中文名称                              权限
                    'title'=>$config['app'],'permissions'=>$permissions//权限->开关：有则能进
                ])->save();
 //               dump($permissions);
                foreach ($permissions as $permission){
+//                                          英文名=模块名+权限英文名
                    Permission::firstOrNew(['name'=>$moduleName . '-' . $permission['name']])->fill([
-                       'title'=>$permission['title'],
-                       'module'=>$moduleName
+                       'title'=>$permission['title'],//中文名
+                       'module'=>$moduleName//模块名
                    ])->save();
                }
            }
        }
 //================
-//        角色表中 找到站长这个角色对象
+//        角色表中 找到站长这个角色对象 英文名=webmaster
         $role =Role::where('name','webmaster')->first();
         //获取所有权限
        $permissions =Permission::pluck('name');
 //        dd($permissions);
         //执行完成后 role_has_permissions表有数据 获得所有权限
- //     角色表name   同步到 权限表的name  即站长有了所有权限
+ //     角色表name   同步到  要求的权限  即站长有了所有权限
         $role->syncPermissions($permissions);
         //获得    设置成站长的那个用户
         $user =User::find(1);

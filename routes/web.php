@@ -98,8 +98,14 @@ Route::group(['prefix'=>'role','namespace'=>'Role','as'=>'role.'],function (){
     Route::get('permission/indx','PermissionController@index')->name('permission.index');
 //    清除权限缓存
     Route::get('permission/forget_permission_cache','PermissionController@forgetPermissionCache')->name('permission.forget_permission_cache');
-//    角色管理的资源
+//角色管理
     Route::resource('role','RoleController');
+//设置角色权限
+    Route::post('role/set_role_permission/{role}','RoleController@setRolePermission')->name('role.set_role_permission');
+//用户管理
+    Route::get('user/index','UserController@index')->name('user.index');
+    Route::get('user/user_set_role_create/{user}','UserController@userSetRoleCreate')->name('user.user_set_role_create');
+    Route::post('user/user_set_role_store/{user}','UserController@userSetRoleStore')->name('user.user_set_role_store');
 });
 
 

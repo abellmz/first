@@ -100,6 +100,7 @@
                     </div>
                 </li>
 {{--网站配置--}}
+                @role('webconfig|webmaster')
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#sidebarLayouts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarLayouts">
                         <i class="fe fe-layout"></i> 网站配置
@@ -129,7 +130,10 @@
                         </ul>
                     </div>
                 </li>
+                @endrole
 {{--微信管理--}}
+                {{--角色（微信管理员或站长）--}}
+                @role('weixin|webmaster')
                 <li class="nav-item">
                     <a class="nav-link" href="#sidebarWechat" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="fe fe-message-square"></i> 微信管理
@@ -163,7 +167,9 @@
                         </ul>
                     </div>
                 </li>
+                @endrole
 {{--权限管理--}}
+                @role('webmaster')
                 <li class="nav-item">
                     <a class="nav-link" href="#sidebarAuth" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarAuth">
                         <i class="fe fe-user"></i> 权限管理
@@ -171,7 +177,7 @@
                     <div class="collapse show" id="sidebarAuth">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="#sidebarSignIn" class="nav-link" >
+                                <a href="{{route('role.user.index')}}" class="nav-link" >
                                     用户管理
                                 </a>
                                 <a href="{{route('role.role.index')}}" class="nav-link" >
@@ -184,7 +190,7 @@
                         </ul>
                     </div>
                 </li>
-
+                @endrole
 
 
                 <li class="nav-item d-md-none">

@@ -34,6 +34,7 @@
                             @foreach($module['permissions'] as $v)
                             <div class="col-4">
                                 <strong>{{$v['title']}}</strong>
+                                {{--模块英文名+权限英文名--}}
                                 |
                                 <span>{{$module['name']}}-{{$v['name']}}</span>
                             </div>

@@ -18,7 +18,7 @@ class UserPolicy
      */
     public function view(User $user, User $model)
     {
-        return $user->is_admin==1;
+//        return $user->is_admin==1;
     }
     /**
      * Determine whether the user can create models.

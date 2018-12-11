@@ -19,3 +19,9 @@ if (!function_exists('hd_config')){
         return $cache[$info[0]][$info[1]]??'';
     }
 }
+//检测当前用户是否有制定角色
+function hdHasRole($role){
+    if (!auth()->user()->hasRole($role)){
+        throw new \App\Exceptions\AuthException('进不了哦');
+    }
+}

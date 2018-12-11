@@ -16,6 +16,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+//        hdHasRole();
 //        $categories=Category::all();获得所有数据
         $categories=Category::paginate(3);//分页
 
