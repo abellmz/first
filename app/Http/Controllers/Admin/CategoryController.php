@@ -80,13 +80,7 @@ class CategoryController extends Controller
         $category->update($request->all());
         return redirect()->route('admin.category.index')->with('success','操作成功');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Category $category)
     {
         $category->delete();

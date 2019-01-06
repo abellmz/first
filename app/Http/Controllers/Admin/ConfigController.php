@@ -27,7 +27,8 @@ class ConfigController extends Controller
             ['name'=>$name,'data'=>$request->all()]
 //            //更新或者添加的数据,持久化模型，因此无需调用：save()
         );
-//        dd($request);
+//        dd($name);//upload
+//        dd($request->all());
 //        laravel扩展包的函数，本函数用于修改.env配置文件，更新的配置项必须在.env文件中存在。
         hd_edit_env($request->all());
 //        dd($request);

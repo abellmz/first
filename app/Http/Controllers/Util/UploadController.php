@@ -41,8 +41,8 @@ class UploadController extends Controller
     private function checkSize($file){
 //        dd($file->getSize());
         //$path = $request->file('上传表单name名')->store('上传文件存储目录','指定磁盘(对应config/filesystem.php中disk)');
-        if ($file->getSize()>hd_config('upload.size')){
-//        if ($file->getSize()>10000000){
+//        if ($file->getSize()>hd_config('upload.size')){
+        if ($file->getSize()>10000000){
             throw new UploadException('上传文件过大');//注意引用的 异常抛出
         }
     }
