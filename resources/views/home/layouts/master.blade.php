@@ -14,6 +14,12 @@
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset('org/assets')}}/css/theme.min.css">
+    {{--武斌博客模板的，用于首页--}}
+    <link href="{{asset('org/static-1')}}/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('org/static-1')}}/css/main.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('org/static-1')}}/css/index.css" type="text/css">
+    <link rel="stylesheet" href="{{asset('org/static-1')}}/css/animate.css" type="text/css">
+    {{--------------}}
     @stack('css')
     <title>{{hd_config('base.title')}}</title>
 </head>
